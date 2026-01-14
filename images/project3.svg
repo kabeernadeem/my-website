@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300">
+  <defs>
+    <linearGradient id="proj3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fce7f3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbcfe8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#proj3)"/>
+  
+  <!-- Mobile Phone Frame -->
+  <rect x="280" y="35" width="240" height="230" fill="white" stroke="#d1d5db" stroke-width="2" rx="12"/>
+  <rect x="282" y="37" width="236" height="226" fill="#f9fafb" rx="10"/>
+  
+  <!-- Phone Status Bar -->
+  <rect x="282" y="37" width="236" height="20" fill="#ec4899" rx="10" ry="10"/>
+  <text x="340" y="50" font-size="9" font-weight="bold" fill="white" font-family="Arial">9:41</text>
+  <text x="505" y="50" font-size="8" fill="white" font-family="Arial">📶 📡 🔋</text>
+  
+  <!-- Phone Content -->
+  <rect x="290" y="62" width="220" height="40" fill="#ec4899" opacity="0.1"/>
+  <text x="310" y="75" font-size="12" font-weight="bold" fill="#ec4899" font-family="Arial">Welcome to MyApp</text>
+  <text x="310" y="90" font-size="9" fill="#be185d" font-family="Arial">Your personal assistant</text>
+  
+  <!-- Content Cards on Phone -->
+  <rect x="295" y="110" width="210" height="35" fill="white" stroke="#fbcfe8" stroke-width="1" rx="4"/>
+  <rect x="302" y="116" width="20" height="20" fill="#ec4899" opacity="0.2" rx="2"/>
+  <text x="335" y="130" font-size="9" font-weight="bold" fill="#be185d" font-family="Arial">Dashboard</text>
+  <text x="335" y="141" font-size="8" fill="#d946a6" font-family="Arial">View your stats</text>
+  
+  <rect x="295" y="155" width="210" height="35" fill="white" stroke="#fbcfe8" stroke-width="1" rx="4"/>
+  <rect x="302" y="161" width="20" height="20" fill="#ec4899" opacity="0.2" rx="2"/>
+  <text x="335" y="175" font-size="9" font-weight="bold" fill="#be185d" font-family="Arial">Messages</text>
+  <text x="335" y="186" font-size="8" fill="#d946a6" font-family="Arial">3 new messages</text>
+  
+  <rect x="295" y="200" width="210" height="35" fill="white" stroke="#fbcfe8" stroke-width="1" rx="4"/>
+  <rect x="302" y="206" width="20" height="20" fill="#ec4899" opacity="0.2" rx="2"/>
+  <text x="335" y="220" font-size="9" font-weight="bold" fill="#be185d" font-family="Arial">Settings</text>
+  <text x="335" y="231" font-size="8" fill="#d946a6" font-family="Arial">Account & privacy</text>
+  
+  <!-- Bottom Navigation -->
+  <rect x="282" y="250" width="236" height="18" fill="#f3f4f6" rx="10" ry="10"/>
+  <circle cx="320" cy="259" r="4" fill="#ec4899"/>
+  <circle cx="400" cy="259" r="4" fill="#d946a6" opacity="0.4"/>
+  <circle cx="480" cy="259" r="4" fill="#d946a6" opacity="0.4"/>
+</svg>

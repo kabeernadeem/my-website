@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300">
+  <defs>
+    <linearGradient id="proj5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ccfbf1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b2f5ea;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#proj5)"/>
+  
+  <!-- API Integration Interface -->
+  <rect x="40" y="25" width="720" height="250" fill="white" stroke="#d1d5db" stroke-width="1" rx="6"/>
+  
+  <!-- Top Bar -->
+  <rect x="40" y="25" width="720" height="40" fill="#14b8a6" rx="6" ry="6"/>
+  <text x="70" y="50" font-size="14" font-weight="bold" fill="white" font-family="Arial">API Management Console</text>
+  <text x="680" y="30" font-size="9" fill="#99f6e4" font-family="Arial">Status: Active ✓</text>
+  
+  <!-- Tabs -->
+  <rect x="55" y="75" width="80" height="20" fill="#14b8a6" rx="2"/>
+  <text x="95" y="87" font-size="10" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">Endpoints</text>
+  <text x="160" y="87" font-size="10" fill="#6b7280" font-family="Arial">Logs</text>
+  <text x="210" y="87" font-size="10" fill="#6b7280" font-family="Arial">Analytics</text>
+  <text x="280" y="87" font-size="10" fill="#6b7280" font-family="Arial">Settings</text>
+  
+  <!-- API Endpoints Section -->
+  <text x="70" y="115" font-size="11" font-weight="bold" fill="#0d7d71" font-family="Arial">Active Endpoints</text>
+  
+  <rect x="55" y="130" width="340" height="100" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1" rx="4"/>
+  <rect x="65" y="140" width="70" height="15" fill="#14b8a6" rx="2"/>
+  <text x="100" y="151" font-size="9" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">POST</text>
+  <text x="150" y="151" font-size="9" fill="#0d7d71" font-family="monospace">/api/v1/users</text>
+  <text x="70" y="165" font-size="9" fill="#6b7280" font-family="monospace">Create new user account</text>
+  <text x="70" y="180" font-size="8" fill="#6b7280" font-family="Arial">Requests: 1,245 | Success Rate: 99.8%</text>
+  
+  <rect x="405" y="130" width="340" height="100" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1" rx="4"/>
+  <rect x="415" y="140" width="70" height="15" fill="#14b8a6" rx="2"/>
+  <text x="450" y="151" font-size="9" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">GET</text>
+  <text x="500" y="151" font-size="9" fill="#0d7d71" font-family="monospace">/api/v1/products</text>
+  <text x="420" y="165" font-size="9" fill="#6b7280" font-family="monospace">Fetch all products</text>
+  <text x="420" y="180" font-size="8" fill="#6b7280" font-family="Arial">Requests: 45,892 | Success Rate: 99.9%</text>
+  
+  <!-- Stats Bar -->
+  <rect x="55" y="245" width="325" height="20" fill="#d1fae5" rx="2"/>
+  <text x="70" y="257" font-size="9" font-weight="bold" fill="#047857" font-family="Arial">API Calls Today: 125,480</text>
+  
+  <rect x="405" y="245" width="325" height="20" fill="#d1fae5" rx="2"/>
+  <text x="420" y="257" font-size="9" font-weight="bold" fill="#047857" font-family="Arial">Uptime: 99.99% | Response: 45ms</text>
+</svg>

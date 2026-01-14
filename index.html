@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StratifyX — Professional Web Development & Digital Marketing</title>
+  <meta name="description" content="StratifyX offers professional web development, SEO services, and digital marketing solutions to grow your business online." />
+  <meta name="keywords" content="web development, SEO services, digital marketing, web design, ecommerce, WordPress, Shopify" />
+  <meta name="author" content="StratifyX" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="StratifyX — Professional Web Development & Digital Marketing" />
+  <meta property="og:description" content="Transform your business with our expert web development, SEO, and digital marketing services." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stratifyx.com" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <style>
+    /* Dropdown animation */
+    .dropdown {
+      transition: all 0.35s ease;
+      transform: translateY(15px);
+      opacity: 0;
+      visibility: hidden;
+    }
+    .group:hover .dropdown {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Fancy underline hover effect */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(to right, #2563eb, #9333ea);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* CTA button pulse */
+    .pulse-btn {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.7); }
+      70% { box-shadow: 0 0 0 20px rgba(59,130,246,0); }
+      100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+    }
+
+    /* Smooth animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes pulse-slow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .animate-fadeInUp { animation: fadeInUp 0.8s ease-out; }
+    .animate-slideInLeft { animation: slideInLeft 0.8s ease-out; }
+    .animate-pulse-slow { animation: pulse-slow 2s infinite; }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-white font-sans">
+
+  <!-- Advanced Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl shadow-lg">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2">
+          <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-md">
+            <span class="text-white font-bold text-xl">S</span>
+          </div>
+          <span class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 tracking-tight">
+            StratifyX
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-10 font-semibold">
+          <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 transition">HOME</a>
+
+          <!-- SEO Services Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 nav-link text-gray-700 hover:text-blue-600">
+              <span>SEO SERVICES</span>
+              <svg class="w-5 h-5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="dropdown absolute left-0 mt-4 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 p-4 space-y-2">
+              <a href="onpage-seo.html" class="block text-gray-700 hover:text-blue-600 transition">On-Page SEO</a>
+              <a href="offpage-seo.html" class="block text-gray-700 hover:text-blue-600 transition">Off-Page SEO</a>
+              <a href="technical-seo.html" class="block text-gray-700 hover:text-blue-600 transition">Technical SEO</a>
+            </div>
+          </div>
+
+          <!-- Web Design Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 nav-link text-gray-700 hover:text-blue-600">
+              <span>WEB DESIGN</span>
+              <svg class="w-5 h-5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="dropdown absolute left-0 mt-4 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 p-4 space-y-2">
+              <a href="wordpress.html" class="block text-gray-700 hover:text-blue-600 transition">WordPress Websites</a>
+              <a href="ecommerce.html" class="block text-gray-700 hover:text-blue-600 transition">E-commerce Stores</a>
+              <a href="shopify.html" class="block text-gray-700 hover:text-blue-600 transition">Shopify Stores</a>
+              <a href="redesign.html" class="block text-gray-700 hover:text-blue-600 transition">Website Redesign</a>
+              <a href="maintenance.html" class="block text-gray-700 hover:text-blue-600 transition">Website Maintenance</a>
+            </div>
+          </div>
+
+          <!-- Marketing Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 nav-link text-gray-700 hover:text-blue-600">
+              <span>MARKETING</span>
+              <svg class="w-5 h-5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="dropdown absolute left-0 mt-4 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 p-4 space-y-2">
+              <a href="digital-marketing.html" class="block text-gray-700 hover:text-blue-600 transition">Digital Marketing</a>
+              <a href="social-media.html" class="block text-gray-700 hover:text-blue-600 transition">Social Media Marketing</a>
+            </div>
+          </div>
+
+          <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 transition">CONTACT</a>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="hidden lg:block">
+          <a href="contact.html" class="pulse-btn bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+            🚀 Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+        <!-- Mobile Menu Button -->
+        <div class="lg:hidden">
+          <button id="nav-toggle" aria-label="Open menu" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+            <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="menu-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobile-nav" class="lg:hidden hidden border-t border-gray-100 mobile-menu">
+      <div class="px-4 py-4 space-y-2">
+        <a href="index.html" class="block px-4 py-2 text-blue-600 font-medium rounded-lg bg-blue-50">Home</a>
+        <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">About</a>
+        
+        <div class="border-t border-gray-100 pt-2">
+          <div class="px-4 py-2 font-medium text-gray-900">SEO Services</div>
+          <div class="pl-4 space-y-1">
+            <a href="onpage-seo.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">On-Page SEO</a>
+            <a href="offpage-seo.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">Off-Page SEO</a>
+            <a href="technical-seo.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">Technical SEO</a>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-100 pt-2">
+          <div class="px-4 py-2 font-medium text-gray-900">Web Design</div>
+          <div class="pl-4 space-y-1">
+            <a href="wordpress.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">WordPress Websites</a>
+            <a href="ecommerce.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">E-commerce Stores</a>
+            <a href="shopify.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">Shopify Stores</a>
+            <a href="redesign.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">Website Redesign</a>
+            <a href="maintenance.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">Website Maintenance</a>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-100 pt-2">
+          <div class="px-4 py-2 font-medium text-gray-900">Marketing</div>
+          <div class="pl-4 space-y-1">
+            <a href="digital-marketing.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">Digital Marketing</a>
+            <a href="social-media.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">Social Media Marketing</a>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-100 pt-2">
+          <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Contact</a>
+          <a href="contact.html" class="block mt-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg text-center font-medium">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+      <!-- Background Pattern -->
+<div class="absolute inset-0 opacity-5">
+  <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z" />%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+</div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Hero Content -->
+          <div class="animate-fadeInUp">
+            <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
+              <span class="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
+              Available for Projects
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              Transform Your
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> Digital Presence</span>
+            </h1>
+            
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              Expert web development, SEO optimization, and digital marketing solutions that drive real business results. Let's build something extraordinary together.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 mb-8">
+              <a href="contact.html" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+                Start Your Project
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </a>
+              <a href="#services" class="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
+                View Services
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </a>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="flex items-center space-x-6 text-sm text-gray-600">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                100% Satisfaction
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                Fast Delivery
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                Expert Support
+              </div>
+            </div>
+          </div>
+          
+          <!-- Hero Image -->
+          <div class="relative animate-slideInLeft">
+            <div class="relative z-10">
+              <div class="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Digital Marketing" class="w-full h-full object-cover" />
+              </div>
+            </div>
+            <!-- Floating Elements -->
+            <div class="absolute top-10 -right-4 bg-white rounded-xl shadow-lg p-3 animate-pulse-slow">
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-sm font-medium">Live Project</span>
+              </div>
+            </div>
+            <div class="absolute bottom-10 -left-4 bg-white rounded-xl shadow-lg p-3 animate-pulse-slow" style="animation-delay: 1s;">
+              <div class="flex items-center space-x-2">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                </svg>
+                <span class="text-sm font-medium">Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Services</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive digital solutions to help your business thrive in the online world
+          </p>
+        </div>
+        
+        <!-- Service Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- SEO Services Card -->
+          <div class="service-card bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">SEO Services</h3>
+            <p class="text-gray-600 mb-6">
+              Boost your online visibility and rank higher on search engines with our comprehensive SEO strategies.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">On-Page Optimization</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Technical SEO Audit</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Link Building</span>
+              </li>
+            </ul>
+            <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+              Learn More
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+          
+          <!-- Web Design Card -->
+          <div class="service-card bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Web Design</h3>
+            <p class="text-gray-600 mb-6">
+              Stunning, responsive websites that captivate your audience and drive conversions.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Custom Design</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Mobile Responsive</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">E-commerce Solutions</span>
+              </li>
+            </ul>
+            <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+              Learn More
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+          
+          <!-- Marketing Card -->
+          <div class="service-card bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Digital Marketing</h3>
+            <p class="text-gray-600 mb-6">
+              Strategic marketing campaigns that increase brand awareness and drive customer engagement.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Social Media Marketing</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">Content Strategy</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">PPC Campaigns</span>
+              </li>
+            </ul>
+            <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+              Learn More
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div class="text-white">
+            <div class="text-4xl lg:text-5xl font-bold mb-2">10+</div>
+            <div class="text-blue-100">Years Experience</div>
+          </div>
+          <div class="text-white">
+            <div class="text-4xl lg:text-5xl font-bold mb-2">150+</div>
+            <div class="text-blue-100">Projects Delivered</div>
+          </div>
+          <div class="text-white">
+            <div class="text-4xl lg:text-5xl font-bold mb-2">98%</div>
+            <div class="text-blue-100">Client Satisfaction</div>
+          </div>
+          <div class="text-white">
+            <div class="text-4xl lg:text-5xl font-bold mb-2">24/7</div>
+            <div class="text-blue-100">Support Available</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+          Ready to Transform Your Business?
+        </h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Let's discuss how we can help you achieve your digital goals and grow your online presence.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="contact.html" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+            Get Started Today
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+          <a href="tel:+923124171077" class="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold text-lg">S</span>
+            </div>
+            <span class="text-xl font-bold">StratifyX</span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            Transforming businesses through expert web development, SEO optimization, and digital marketing solutions.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/in/kabeer-nadeem-3a6162279/" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+              </svg>
+            </a>
+            <a href="https://wa.me/923124171077" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.75 5.404 2.177 7.707l-2.313 6.179 6.438-2.313c2.259 1.227 4.823 1.927 7.529 1.927 9.858 0 17.895-8.009 17.895-17.895 0-4.784-1.899-9.29-5.345-12.676-3.446-3.387-8.034-5.25-12.878-5.25"/>
+              </svg>
+            </a>
+            <a href="mailto:meetingofficial23@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M2.25 4.5A2.25 2.25 0 014.5 2.25h15A2.25 2.25 0 0121.75 4.5v15a2.25 2.25 0 01-2.25 2.25h-15A2.25 2.25 0 012.25 19.5v-15zm1.5.75v13.5l6.75-4.5L3.75 5.25zm7.5 6.75L21 19.5V5.25l-9.75 6.75z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+            <li><a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">SEO Services</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Design</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Digital Marketing</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">E-commerce</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">WordPress Development</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Get In Touch</h3>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-blue-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+              </svg>
+            <div class="text-gray-400">
+                <a href="mailto:meetingofficial23@gmail.com" class="text-gray-400 hover:text-white transition-colors">meetingofficial23@gmail.com</a>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-blue-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+            <div class="text-gray-400">
+                <a href="tel:+923124171077" class="text-gray-400 hover:text-white transition-colors">+92-312-417-1077</a>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-blue-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+              <div class="text-gray-400">
+                Available for projects worldwide
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
+        <div class="text-gray-400 text-sm mb-4 md:mb-0">
+          © <span id="year"></span> StratifyX. All rights reserved.
+        </div>
+        <div class="flex items-center space-x-6 text-sm text-gray-400">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/923124171077" target="_blank" rel="noopener" class="whatsapp-float fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg z-30" title="Chat on WhatsApp">
+    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.75 5.404 2.177 7.707l-2.313 6.179 6.438-2.313c2.259 1.227 4.823 1.927 7.529 1.927 9.858 0 17.895-8.009 17.895-17.895 0-4.784-1.899-9.29-5.345-12.676-3.446-3.387-8.034-5.25-12.878-5.25"/>
+    </svg>
+  </a>
+
+  <!-- AI Chatbot Widget -->
+  <div class="fixed bottom-24 right-6 z-30">
+    <button id="chat-toggle" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110" title="Open Chat">
+      <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12h-8v-2h8v2zm0-3h-8V9h8v2zm0-3h-8V6h8v2z"/>
+      </svg>
+    </button>
+    
+    <div id="chat-window" class="hidden absolute bottom-20 right-0 bg-white rounded-2xl shadow-2xl w-96 h-[500px] flex flex-col border border-gray-100 overflow-hidden">
+      <!-- Chat Header -->
+      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold">StratifyX Assistant</div>
+          <div class="text-xs text-blue-100">Always here to help • Online</div>
+        </div>
+      </div>
+      
+      <!-- Chat Messages -->
+      <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+        <!-- Welcome Message -->
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+            </svg>
+          </div>
+          <div class="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-[80%]">
+            <p class="text-sm text-gray-800">Hello! 👋 I'm here to help you with web development, SEO services, and digital marketing. How can I assist you today?</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Actions -->
+      <div class="px-4 py-3 bg-white border-t border-gray-100">
+        <div class="flex flex-wrap gap-2 mb-3">
+          <button class="quick-action px-3 py-1.5 bg-blue-100 text-blue-700 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors" data-message="Tell me about your SEO services">
+            SEO Services
+          </button>
+          <button class="quick-action px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full text-xs font-medium hover:bg-purple-200 transition-colors" data-message="What web design services do you offer?">
+            Web Design
+          </button>
+          <button class="quick-action px-3 py-1.5 bg-green-100 text-green-700 rounded-full text-xs font-medium hover:bg-green-200 transition-colors" data-message="How can I contact you?">
+            Contact Info
+          </button>
+        </div>
+      </div>
+      
+      <!-- Chat Input -->
+      <div class="p-4 bg-white border-t border-gray-100">
+        <div class="flex gap-2">
+          <input id="chat-input" type="text" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-200" />
+          <button id="chat-send" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    #chat-window.show {
+      animation: slideUp 0.3s ease-out;
+    }
+    
+    #chat-messages {
+      scrollbar-width: thin;
+      scrollbar-color: #d1d5db transparent;
+    }
+    
+    #chat-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    #chat-messages::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    #chat-messages::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 3px;
+    }
+    
+    #chat-messages::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
+  </style>
+
+</body>
+</html>
