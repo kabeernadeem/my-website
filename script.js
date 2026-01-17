@@ -8,6 +8,38 @@ navToggle?.addEventListener('click', () => {
   mobileNav?.classList.toggle('hidden');
   menuOpen?.classList.toggle('hidden');
   menuClose?.classList.toggle('hidden');
+  
+  // Prevent body scroll when mobile menu is open
+  if (!mobileNav?.classList.contains('hidden')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+});
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', (e) => {
+  if (window.innerWidth < 1024) {
+    const isClickInsideNav = mobileNav?.contains(e.target);
+    const isClickOnToggle = navToggle?.contains(e.target);
+    
+    if (!isClickInsideNav && !isClickOnToggle && !mobileNav?.classList.contains('hidden')) {
+      mobileNav?.classList.add('hidden');
+      menuOpen?.classList.remove('hidden');
+      menuClose?.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1024 && !mobileNav?.classList.contains('hidden')) {
+    mobileNav?.classList.add('hidden');
+    menuOpen?.classList.remove('hidden');
+    menuClose?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
 });
 
 // Smooth scroll for in-page links
@@ -43,6 +75,26 @@ chatToggle?.addEventListener('click', () => {
   if (!chatWindow.classList.contains('hidden')) {
     chatWindow.classList.add('show');
     chatInput?.focus();
+    
+    // On mobile, adjust scroll behavior
+    if (window.innerWidth < 640) {
+      setTimeout(() => {
+        chatWindow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+  }
+});
+
+// Close chat when clicking outside on mobile
+document.addEventListener('click', (e) => {
+  if (window.innerWidth < 640) {
+    const isClickInsideChat = chatWindow?.contains(e.target);
+    const isClickOnToggle = chatToggle?.contains(e.target);
+    
+    if (!isClickInsideChat && !isClickOnToggle && !chatWindow.classList.contains('hidden')) {
+      chatWindow.classList.add('hidden');
+      chatWindow.classList.remove('show');
+    }
   }
 });
 
@@ -140,39 +192,86 @@ document.querySelectorAll('.quick-action').forEach(button => {
 });
 
 // Contact form handling (demo only)
-const form = document.getElementById('contact-form');
-const feedback = document.getElementById('form-feedback');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Basic UI feedback; integrate with backend or email service as needed
-    feedback.classList.remove('hidden');
-    setTimeout(() => {
-      feedback.classList.add('hidden');
-      form.reset();
-    }, 3000);
-  });
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  const feedback = document.getElementById('form-feedback');
+  const error = document.getElementById('form-error');
+  
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form fields with null checks
+      const name = document.getElementById('name')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      const subject = document.getElementById('subject')?.value.trim();
+      const message = document.getElementById('message')?.value.trim();
+      
+      // Reset feedback messages
+      if (feedback) feedback.classList.add('hidden');
+      if (error) error.classList.add('hidden');
+      
+      // Validation
+      if (!name || !email || !subject || !message) {
+        if (error) {
+          error.textContent = 'Please fill in all required fields.';
+          error.classList.remove('hidden');
+        }
+        return;
+      }
+      
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        if (error) {
+          error.textContent = 'Please enter a valid email address.';
+          error.classList.remove('hidden');
+        }
+        return;
+      }
+      
+      // Basic UI feedback; integrate with backend or email service as needed
+      if (feedback) {
+        feedback.classList.remove('hidden');
+        form.reset();
+        
+        // Hide feedback after 3 seconds
+        setTimeout(() => {
+          if (feedback) feedback.classList.add('hidden');
+        }, 3000);
+      }
+    });
+  }
+});
 
 // Set current year in footer
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', function() {
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
 
 // Add animation on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
+document.addEventListener('DOMContentLoaded', function() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate-fadeInUp');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fadeInUp');
+      }
+    });
+  }, observerOptions);
+
+  // Observe service cards with error handling
+  const serviceCards = document.querySelectorAll('.service-card');
+  serviceCards.forEach(card => {
+    try {
+      observer.observe(card);
+    } catch (error) {
+      console.warn('Error observing element:', error);
     }
   });
-}, observerOptions);
-
-// Observe service cards
-document.querySelectorAll('.service-card').forEach(card => {
-  observer.observe(card);
 });

@@ -354,7 +354,37 @@
         // Mobile navigation toggle
         document.getElementById('nav-toggle').addEventListener('click', function() {
             const mobileNav = document.getElementById('mobile-nav');
+            const menuOpen = document.getElementById('menu-open');
+            const menuClose = document.getElementById('menu-close');
+            
             mobileNav.classList.toggle('hidden');
+            menuOpen.classList.toggle('hidden');
+            menuClose.classList.toggle('hidden');
+        });
+
+        // Close mobile nav when a link is clicked
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const mobileNav = document.getElementById('mobile-nav');
+                const menuOpen = document.getElementById('menu-open');
+                const menuClose = document.getElementById('menu-close');
+                
+                if (!mobileNav.classList.contains('hidden')) {
+                    mobileNav.classList.add('hidden');
+                    menuOpen.classList.remove('hidden');
+                    menuClose.classList.add('hidden');
+                }
+            });
+        });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileNav = document.getElementById('mobile-nav');
+            const navToggle = document.getElementById('nav-toggle');
+            
+            if (!mobileNav.contains(e.target) && !navToggle.contains(e.target)) {
+                mobileNav.classList.add('hidden');
+            }
         });
 
         // Set current year

@@ -23,6 +23,15 @@ document.querySelectorAll('#mobile-nav a').forEach(link => {
   });
 });
 
+// Close mobile nav when clicking outside
+document.addEventListener('click', (e) => {
+  if (!mobileNav?.contains(e.target) && !navToggle?.contains(e.target)) {
+    mobileNav?.classList.add('hidden');
+    menuOpen?.classList.remove('hidden');
+    menuClose?.classList.add('hidden');
+  }
+});
+
 // Trigger homepage hero animation with letter-by-letter splitting
 document.addEventListener('DOMContentLoaded', function() {
   function splitText(selector, delayStep = 40) {

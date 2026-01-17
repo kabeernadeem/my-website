@@ -17,8 +17,19 @@
                 <nav class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
                     <a href="about.html" class="text-gray-700 hover:text-blue-600 transition">About</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
                 </nav>
+                <!-- Mobile Navigation -->
+                <div id="mobile-nav" class="md:hidden hidden border-t border-gray-100">
+                    <div class="px-4 py-2 space-y-1">
+                        <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition">Home</a>
+                        <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition">About</a>
+                        <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition">Contact</a>
+                        <a href="contact.html" class="block mt-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-2 rounded-lg text-center font-medium">Get Started</a>
+                    </div>
+                </div>
+                <button id="nav-toggle" class="md:hidden flex justify-center w-8 h-8 bg-gray-200 hover:bg-gray-400 rounded-full">
+                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
             </div>
         </div>
     </header>
@@ -47,6 +58,7 @@
 
                 <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-4">Client Responsibilities</h2>
                 <p class="text-gray-600 mb-4">As a client, you agree to:</p>
+                <div id="year"></div>
                 <ul class="list-disc pl-6 text-gray-600 mb-6">
                     <li>Provide accurate and complete information for your project</li>
                     <li>Respond promptly to requests for feedback and approvals</li>
@@ -145,9 +157,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="text-center">
-                <p class="text-gray-400">&copy; 2026 StratifyX. All rights reserved.</p>
-            </div>
+            <div id="year"></div>
         </div>
     </footer>
 </body>
