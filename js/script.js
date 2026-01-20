@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // AI Chatbot - Contextual Responses
 const chatbotResponses = {
-  welcome: "Welcome to StratifyX's services! How can I help you today?",
+  welcome: "Welcome to StratifyX.web's services! How can I help you today?",
   
   services: {
     detailed: "I offer three main services:\n\n🔹 Web Development:\n• React.js & Vue.js\n• Laravel & PHP\n• WordPress\n• API integration\n• SQL databases\n\n🔐 Cybersecurity:\n• VAPT\n• Malware Analysis\n• CEH V10 Certified\n• CSA expertise\n• Qradar & Rapid7\n\n📈 Business Development Strategy:\n• Market research\n• Go-to-market planning\n• Growth optimization",
@@ -201,13 +201,13 @@ const chatbotResponses = {
   certifications: "Our professional certifications include:\n✓ CEH V10 (Certified Ethical Hacker)\n✓ CSA (Cloud Security Alliance)\n✓ Qradar\n✓ Rapid7\n✓ VAPT & Malware Analysis\n\nThese certifications validate our expertise in cybersecurity and advanced threat analysis.",
   
   contact: {
-    full: "Here's how you can reach StratifyX:\n📧 Email: meetingofficial23@gmail.com\n📱 Phone: +92-3124171077\n💼 LinkedIn: linkedin.com/in/kabeer-nadeem-3a6162279/\n💬 WhatsApp: wa.me/923124171077",
+    full: "Here's how you can reach StratifyX.web:\n📧 Email: meetingofficial23@gmail.com\n📱 Phone: +92-3124171077\n💼 LinkedIn: linkedin.com/in/kabeer-nadeem-3a6162279/\n💬 WhatsApp: wa.me/923124171077",
     short: "You can reach StratifyX via email, phone, LinkedIn, or WhatsApp. Which would you prefer?"
   },
   
   thanks: "You're welcome! Feel free to ask if you have any other questions.",
   
-  about: "StratifyX is a Web Development and Business Strategy firm with expertise in:\n• Full-stack web development (React, Laravel, PHP, Vue)\n• Cybersecurity (VAPT, Malware Analysis, CEH V10)\n• Business development and growth strategies\n\nHow can we help you?",
+  about: "StratifyX.web is a Web Development and Business Strategy firm with expertise in:\n• Full-stack web development (React, Laravel, PHP, Vue)\n• Cybersecurity (VAPT, Malware Analysis, CEH V10)\n• Business development and growth strategies\n\nHow can we help you?",
   
   experience: "StratifyX has 10+ years of combined experience delivering 50+ projects in web development, cybersecurity, and business strategy. We work with startups and enterprises to build scalable solutions.",
   
