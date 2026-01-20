@@ -612,8 +612,85 @@
 
   <script src="js/script.js"></script>
 
-  <!-- Mobile Responsive Footer Styles -->
+  <!-- Mobile Responsive Styles -->
   <style>
+    /* Better touch targets for mobile */
+    @media (max-width: 768px) {
+      button, a {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+    
+    /* Mobile responsiveness improvements */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2;
+      }
+      
+      .hero p {
+        font-size: 1rem !important;
+        padding: 0 1rem;
+      }
+      
+      .service-card {
+        margin-bottom: 1rem;
+      }
+      
+      .cta-section {
+        padding: 3rem 1rem !important;
+      }
+      
+      .cta-content {
+        padding: 1.5rem !important;
+      }
+      
+      .cta-buttons {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      
+      .cta-buttons a {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .mobile-menu {
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      
+      .decorative-icon {
+        font-size: 100px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem !important;
+      }
+      
+      .service-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      
+      .service-card img {
+        height: 200px !important;
+      }
+      
+      .heading-icon {
+        width: 4rem !important;
+        height: 4rem !important;
+      }
+      
+      .heading-icon span {
+        font-size: 1.5rem !important;
+      }
+    }
+    
+    /* Footer responsiveness */
     @media (max-width: 768px) {
       footer .grid {
         grid-template-columns: 1fr;

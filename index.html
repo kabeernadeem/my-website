@@ -115,6 +115,115 @@
         min-width: 44px;
       }
     }
+    
+    /* Mobile responsiveness improvements */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2;
+      }
+      
+      .hero p {
+        font-size: 1rem !important;
+        padding: 0 1rem;
+      }
+      
+      .service-card {
+        margin-bottom: 1rem;
+      }
+      
+      .cta-section {
+        padding: 3rem 1rem !important;
+      }
+      
+      .cta-content {
+        padding: 1.5rem !important;
+      }
+      
+      .cta-buttons {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      
+      .cta-buttons a {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .mobile-menu {
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      
+      .decorative-icon {
+        font-size: 100px !important;
+      }
+      
+      /* Home page specific mobile fixes */
+      .hero-section {
+        padding: 3rem 1rem !important;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.1;
+      }
+      
+      .hero-content p {
+        font-size: 1rem !important;
+        text-align: center;
+      }
+      
+      .hero-buttons {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      
+      .hero-buttons a {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem !important;
+      }
+      
+      .service-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      
+      .service-card img {
+        height: 200px !important;
+      }
+      
+      .heading-icon {
+        width: 4rem !important;
+        height: 4rem !important;
+      }
+      
+      .heading-icon span {
+        font-size: 1.5rem !important;
+      }
+      
+      /* Home page specific mobile fixes */
+      .hero-content h1 {
+        font-size: 1.75rem !important;
+      }
+      
+      .hero-buttons a {
+        padding: 0.875rem 1rem !important;
+        font-size: 0.875rem !important;
+      }
+    }
   </style>
 </head>
 <body class="antialiased text-gray-800 bg-white font-sans">
@@ -252,16 +361,16 @@
 
   <main>
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-orange-50 via-white to-red-50 overflow-hidden">
+    <section class="relative bg-gradient-to-br from-orange-50 via-white to-red-50 overflow-hidden hero-section">
       <!-- Background Pattern -->
 <div class="absolute inset-0 opacity-5">
   <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z" />%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
 </div>
       
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid lg:grid-cols-2 gap-12 items-center hero-grid">
           <!-- Hero Content -->
-          <div class="animate-fadeInUp">
+          <div class="animate-fadeInUp hero-content">
             <div class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-sm font-medium mb-6">
               <span class="w-2 h-2 bg-orange-600 rounded-full mr-2 animate-pulse"></span>
               Available for Projects
@@ -276,7 +385,7 @@
               Expert web development, SEO optimization, and digital marketing solutions that drive real business results. Let's build something extraordinary together.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <div class="flex flex-col sm:flex-row gap-4 mb-8 hero-buttons">
               <a href="contact.html" class="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
                 Start Your Project
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -692,24 +801,52 @@
     /* Mobile Chat Widget Fixes */
     @media (max-width: 640px) {
       #chat-window {
-        width: calc(100vw - 2rem);
-        right: -1rem;
-        left: 1rem;
-        height: 70vh;
-        max-height: 500px;
-      }
-      
-      .whatsapp-float {
-        bottom: 4rem;
-        right: 1rem;
+        width: calc(100vw - 2rem) !important;
+        height: 70vh !important;
+        right: 1rem !important;
+        left: 1rem !important;
+        bottom: 6rem !important;
+        top: auto !important;
       }
       
       #chat-toggle {
-        bottom: 4rem;
-        right: 1rem;
+        bottom: 1rem !important;
+        right: 1rem !important;
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #chat-window {
+        width: calc(100vw - 1rem) !important;
+        height: 80vh !important;
+        right: 0.5rem !important;
+        left: 0.5rem !important;
+        bottom: 6rem !important;
+        top: auto !important;
       }
       
-      /* Mobile Navigation Improvements */
+      #chat-toggle {
+        bottom: 0.5rem !important;
+        right: 0.5rem !important;
+        width: 3rem !important;
+        height: 3rem !important;
+      }
+    }
+    
+    /* Chat window animation fixes */
+    #chat-window {
+      transition: all 0.3s ease-out !important;
+      transform-origin: bottom right;
+    }
+    
+    #chat-window.show {
+      animation: slideUp 0.3s ease-out !important;
+    }  
+    
+    /* Mobile Navigation Improvements */
+    @media (max-width: 768px) {
       #mobile-nav {
         max-height: 80vh;
         overflow-y: auto;
