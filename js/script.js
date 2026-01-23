@@ -321,6 +321,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   let hasGreeted = false;
+  let isMobile = window.innerWidth <= 768;
+  
+  // Update mobile status on resize
+  window.addEventListener('resize', () => {
+    isMobile = window.innerWidth <= 768;
+  });
   
   // Show welcome message
   function showWelcome() {
@@ -334,12 +340,77 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Open chat on hover (mouseenter)
-  chatToggle.addEventListener('mouseenter', (e) => {
-    e.stopPropagation();
+  // Position chat window properly on mobile
+  function positionChatWindow() {
+    if (isMobile) {
+      chatWindow.style.position = 'fixed';
+      chatWindow.style.bottom = '5rem';
+      chatWindow.style.right = '1rem';
+      chatWindow.style.left = '1rem';
+      chatWindow.style.width = 'calc(100vw - 2rem)';
+      chatWindow.style.height = '70vh';
+      chatWindow.style.maxHeight = '600px';
+      chatWindow.style.zIndex = '999';
+    } else {
+      chatWindow.style.position = 'absolute';
+      chatWindow.style.bottom = '5rem';
+      chatWindow.style.right = '0';
+      chatWindow.style.left = 'auto';
+      chatWindow.style.width = '24rem';
+      chatWindow.style.height = '500px';
+      chatWindow.style.maxHeight = 'none';
+      chatWindow.style.zIndex = '30';
+    }
+  }
+  
+  // Open chat function
+  function openChat() {
+    positionChatWindow();
     chatWindow.classList.remove('hidden');
+    chatWindow.classList.add('show');
     showWelcome();
     chatInput.focus();
+    
+    // Prevent body scroll on mobile when chat is open
+    if (isMobile) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  // Close chat function
+  function closeChat() {
+    chatWindow.classList.add('hidden');
+    chatWindow.classList.remove('show');
+    
+    // Restore body scroll on mobile
+    if (isMobile) {
+      document.body.style.overflow = '';
+    }
+  }
+  
+  // Toggle chat on click (better for mobile)
+  chatToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (chatWindow.classList.contains('hidden')) {
+      openChat();
+    } else {
+      closeChat();
+    }
+  });
+  
+  // Open chat on hover for desktop only
+  if (!isMobile) {
+    chatToggle.addEventListener('mouseenter', (e) => {
+      e.stopPropagation();
+      openChat();
+    });
+  }
+  
+  // Reposition on window resize
+  window.addEventListener('resize', () => {
+    if (!chatWindow.classList.contains('hidden')) {
+      positionChatWindow();
+    }
   });
   
   // Send message function
@@ -373,16 +444,42 @@ document.addEventListener('DOMContentLoaded', function() {
   // Send on Enter key
   chatInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
       sendMessage();
     }
   });
   
-  // Close chat when clicking outside
+  // Close chat when clicking outside (with mobile considerations)
   document.addEventListener('click', (e) => {
     const chatContainer = chatWindow.parentElement;
     if (!chatContainer.contains(e.target) && !chatToggle.contains(e.target)) {
-      chatWindow.classList.add('hidden');
+      closeChat();
     }
   });
+  
+  // Handle touch events for mobile
+  if (isMobile) {
+    // Prevent chat window from moving when scrolling
+    chatWindow.addEventListener('touchmove', (e) => {
+      if (chatMessages.scrollHeight > chatMessages.clientHeight) {
+        // Allow scrolling within messages
+        if (e.target !== chatMessages && !chatMessages.contains(e.target)) {
+          e.preventDefault();
+        }
+      } else {
+        e.preventDefault();
+      }
+    }, { passive: false });
+    
+    // Handle orientation change
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        positionChatWindow();
+      }, 100);
+    });
+  }
+  
+  // Initialize position
+  positionChatWindow();
 });
 

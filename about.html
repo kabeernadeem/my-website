@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
   <title>StratifyX — Professional Web Development & Digital Marketing</title>
   <meta name="description" content="StratifyX.web offers professional web development, SEO services, and digital marketing solutions to grow your business online." />
   <meta name="keywords" content="web development, SEO services, digital marketing, web design, ecommerce, WordPress, Shopify" />
@@ -19,6 +19,9 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Mobile Responsive CSS -->
+  <link rel="stylesheet" href="css/mobile-responsive.css">
 
   <!-- Custom Styles -->
   <style>
@@ -82,6 +85,148 @@
     .animate-fadeInUp { animation: fadeInUp 0.8s ease-out; }
     .animate-slideInLeft { animation: slideInLeft 0.8s ease-out; }
     .animate-pulse-slow { animation: pulse-slow 2s infinite; }
+    
+    /* Mobile Touch Improvements */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    input, textarea {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+    
+    button, a {
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* Better touch targets for mobile */
+    @media (max-width: 768px) {
+      button, a {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+    
+    /* Mobile responsiveness improvements */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2;
+      }
+      
+      .hero p {
+        font-size: 1rem !important;
+        padding: 0 1rem;
+      }
+      
+      .service-card {
+        margin-bottom: 1rem;
+      }
+      
+      .cta-section {
+        padding: 3rem 1rem !important;
+      }
+      
+      .cta-content {
+        padding: 1.5rem !important;
+      }
+      
+      .cta-buttons {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      
+      .cta-buttons a {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .mobile-menu {
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      
+      .decorative-icon {
+        font-size: 100px !important;
+      }
+      
+      /* Home page specific mobile fixes */
+      .hero-section {
+        padding: 3rem 1rem !important;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.1;
+      }
+      
+      .hero-content p {
+        font-size: 1rem !important;
+        text-align: center;
+      }
+      
+      .hero-buttons {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      
+      .hero-buttons a {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem !important;
+      }
+      
+      .service-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      
+      .service-card img {
+        height: 200px !important;
+      }
+      
+      .heading-icon {
+        width: 4rem !important;
+        height: 4rem !important;
+      }
+      
+      .heading-icon span {
+        font-size: 1.5rem !important;
+      }
+      
+      /* Home page specific mobile fixes */
+      .hero-content h1 {
+        font-size: 1.75rem !important;
+      }
+      
+      .hero-buttons a {
+        padding: 0.875rem 1rem !important;
+        font-size: 0.875rem !important;
+      }
+    }
   </style>
 </head>
 <body class="antialiased text-gray-800 bg-white font-sans">
@@ -160,11 +305,6 @@
             🚀 Get Started
           </a>
         </div>
-      </div>
-    </div>
-  </header>
-</body>
-</html>
 
         <!-- Mobile Menu Button -->
         <div class="lg:hidden">
@@ -216,7 +356,7 @@
         
         <div class="border-t border-gray-100 pt-2">
           <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Contact</a>
-          <a href="contact.html" class="block mt-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg text-center font-medium">Get Started</a>
+          <a href="contact.html" class="block mt-2 bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-lg text-center font-medium">Get Started</a>
         </div>
       </div>
     </div>
@@ -224,38 +364,38 @@
 
   <main>
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+    <section class="relative bg-gradient-to-br from-orange-50 via-white to-red-50 overflow-hidden hero-section">
       <!-- Background Pattern -->
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-      </div>
+<div class="absolute inset-0 opacity-5">
+  <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z" />%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+</div>
       
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid lg:grid-cols-2 gap-12 items-center hero-grid">
           <!-- Hero Content -->
-          <div class="animate-fadeInUp">
-            <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
-              <span class="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
+          <div class="animate-fadeInUp hero-content">
+            <div class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-sm font-medium mb-6">
+              <span class="w-2 h-2 bg-orange-600 rounded-full mr-2 animate-pulse"></span>
               Available for Projects
             </div>
             
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
               Transform Your
-              <span class="gradient-text"> Digital Presence</span>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600"> Digital Presence</span>
             </h1>
             
             <p class="text-xl text-gray-600 mb-8 leading-relaxed">
               Expert web development, SEO optimization, and digital marketing solutions that drive real business results. Let's build something extraordinary together.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-4 mb-8">
-              <a href="contact.html" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+            <div class="flex flex-col sm:flex-row gap-4 mb-8 hero-buttons">
+              <a href="contact.html" class="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
                 Start Your Project
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                 </svg>
               </a>
-              <a href="#services" class="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
+              <a href="#services" class="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-orange-600 hover:text-orange-600 transition-all duration-200">
                 View Services
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -290,7 +430,7 @@
           <!-- Hero Image -->
           <div class="relative animate-slideInLeft">
             <div class="relative z-10">
-              <div class="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-2xl overflow-hidden">
+              <div class="aspect-square bg-gradient-to-br from-orange-100 to-red-100 rounded-2xl shadow-2xl overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Digital Marketing" class="w-full h-full object-cover" />
               </div>
             </div>
@@ -303,7 +443,7 @@
             </div>
             <div class="absolute bottom-10 -left-4 bg-white rounded-xl shadow-lg p-3 animate-pulse-slow" style="animation-delay: 1s;">
               <div class="flex items-center space-x-2">
-                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
                 </svg>
                 <span class="text-sm font-medium">Analytics</span>
@@ -318,11 +458,19 @@
     <section id="services" class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Our <span class="gradient-text">Services</span>
+        <div class="text-center mb-20">
+          <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-100 to-red-100 rounded-2xl mb-6 shadow-lg">
+            <span class="text-3xl">🛠️</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
+            <span class="relative">
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 via-red-600 to-orange-700">
+                Our Services
+              </span>
+            </span>
           </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div class="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto mb-6 rounded-full"></div>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
             Comprehensive digital solutions to help your business thrive in the online world
           </p>
         </div>
@@ -330,38 +478,41 @@
         <!-- Service Cards -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- SEO Services Card -->
-          <div class="service-card bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-2xl">
-            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-              </svg>
+          <div class="relative group rounded-2xl overflow-hidden shadow-xl cursor-pointer border border-gray-200 bg-white
+                      transform transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl hover:border-orange-300">
+            <div class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                FEATURED
+              </div>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">SEO Services</h3>
-            <p class="text-gray-600 mb-6">
-              Boost your online visibility and rank higher on search engines with our comprehensive SEO strategies.
-            </p>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <span class="text-gray-700">On-Page Optimization</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <span class="text-gray-700">Technical SEO Audit</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <span class="text-gray-700">Link Building</span>
-              </li>
-            </ul>
-            <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
-              Learn More
+            <div class="relative h-64 overflow-hidden bg-gradient-to-br from-gray-50 to-orange-50">
+              <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center mx-auto my-8">
+                <span class="text-3xl">🔍</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="SEO Services" 
+                   class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+              <div class="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/20"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 translate-y-full opacity-0 
+                        group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+              <div class="bg-gradient-to-r from-orange-500 to-red-600 p-6">
+                <div class="flex items-center mb-3">
+                  <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+                    <span class="text-2xl">🔑</span>
+                  </div>
+                  <h3 class="text-2xl font-black text-white">SEO Services</h3>
+                </div>
+                <p class="text-white text-sm leading-relaxed">Boost your online visibility and rank higher on search engines with our comprehensive SEO strategies.</p>
+                <div class="flex items-center mt-4 text-white/80 text-xs">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l2-2m0 0l7-7-7 7-7 7v7l-2 2z"/>
+                  </svg>
+                  Advanced Optimization
+                </div>
+              </div>
+            </div>
+            <a href="onpage-seo.html" class="inline-flex items-center text-orange-600 font-semibold mt-6 hover:text-orange-700">
+              Explore SEO Services
               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
@@ -369,8 +520,8 @@
           </div>
           
           <!-- Web Design Card -->
-          <div class="service-card bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-2xl">
-            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+          <div class="service-card bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-6">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
@@ -399,7 +550,7 @@
                 <span class="text-gray-700">E-commerce Solutions</span>
               </li>
             </ul>
-            <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+            <a href="#" class="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700">
               Learn More
               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -408,8 +559,8 @@
           </div>
           
           <!-- Marketing Card -->
-          <div class="service-card bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-2xl">
-            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
+          <div class="service-card bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-xl flex items-center justify-center mb-6">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
               </svg>
@@ -438,7 +589,7 @@
                 <span class="text-gray-700">PPC Campaigns</span>
               </li>
             </ul>
-            <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+            <a href="#" class="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700">
               Learn More
               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -450,24 +601,24 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+    <section class="py-16 bg-gradient-to-r from-orange-500 to-red-600">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           <div class="text-white">
             <div class="text-4xl lg:text-5xl font-bold mb-2">10+</div>
-            <div class="text-blue-100">Years Experience</div>
+            <div class="text-orange-100">Years Experience</div>
           </div>
           <div class="text-white">
             <div class="text-4xl lg:text-5xl font-bold mb-2">150+</div>
-            <div class="text-blue-100">Projects Delivered</div>
+            <div class="text-orange-100">Projects Delivered</div>
           </div>
           <div class="text-white">
             <div class="text-4xl lg:text-5xl font-bold mb-2">98%</div>
-            <div class="text-blue-100">Client Satisfaction</div>
+            <div class="text-orange-100">Client Satisfaction</div>
           </div>
           <div class="text-white">
             <div class="text-4xl lg:text-5xl font-bold mb-2">24/7</div>
-            <div class="text-blue-100">Support Available</div>
+            <div class="text-orange-100">Support Available</div>
           </div>
         </div>
       </div>
@@ -483,13 +634,13 @@
           Let's discuss how we can help you achieve your digital goals and grow your online presence.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="contact.html" class="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+          <a href="contact.html" class="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
             Get Started Today
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
           </a>
-          <a href="tel:+923124171077" class="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
+          <a href="tel:+923124171077" class="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-orange-600 hover:text-orange-600 transition-all duration-200">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
             </svg>
@@ -507,10 +658,10 @@
         <!-- Company Info -->
         <div class="lg:col-span-1">
           <div class="flex items-center space-x-2 mb-4">
-            <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+            <div class="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
               <span class="text-white font-bold text-lg">S</span>
             </div>
-            <span class="text-xl font-bold">StratifyX<span class="text-gray-600 font-bold">.web</span></span>
+            <span class="text-xl font-bold">StratifyX<span class="text-black font-bold">.web</span></span>
           </div>
           <p class="text-gray-400 mb-6">
             Transforming businesses through expert web development, SEO optimization, and digital marketing solutions.
@@ -568,24 +719,24 @@
           <h3 class="text-lg font-semibold mb-4">Get In Touch</h3>
           <div class="space-y-4">
             <div class="flex items-start space-x-3">
-              <svg class="w-5 h-5 text-blue-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-orange-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
               </svg>
-              <div>
+            <div class="text-gray-400">
                 <a href="mailto:meetingofficial23@gmail.com" class="text-gray-400 hover:text-white transition-colors">meetingofficial23@gmail.com</a>
               </div>
             </div>
             <div class="flex items-start space-x-3">
-              <svg class="w-5 h-5 text-blue-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-orange-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
               </svg>
-              <div>
+            <div class="text-gray-400">
                 <a href="tel:+923124171077" class="text-gray-400 hover:text-white transition-colors">+92-312-417-1077</a>
               </div>
             </div>
             <div class="flex items-start space-x-3">
-              <svg class="w-5 h-5 text-blue-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-orange-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
               </svg>
               <div class="text-gray-400">
@@ -612,85 +763,8 @@
 
   <script src="js/script.js"></script>
 
-  <!-- Mobile Responsive Styles -->
+  <!-- Mobile Responsive Footer Styles -->
   <style>
-    /* Better touch targets for mobile */
-    @media (max-width: 768px) {
-      button, a {
-        min-height: 44px;
-        min-width: 44px;
-      }
-    }
-    
-    /* Mobile responsiveness improvements */
-    @media (max-width: 640px) {
-      .hero h1 {
-        font-size: 2.5rem !important;
-        line-height: 1.2;
-      }
-      
-      .hero p {
-        font-size: 1rem !important;
-        padding: 0 1rem;
-      }
-      
-      .service-card {
-        margin-bottom: 1rem;
-      }
-      
-      .cta-section {
-        padding: 3rem 1rem !important;
-      }
-      
-      .cta-content {
-        padding: 1.5rem !important;
-      }
-      
-      .cta-buttons {
-        flex-direction: column !important;
-        gap: 1rem !important;
-      }
-      
-      .cta-buttons a {
-        width: 100%;
-        justify-content: center;
-      }
-      
-      .mobile-menu {
-        max-height: 80vh;
-        overflow-y: auto;
-      }
-      
-      .decorative-icon {
-        font-size: 100px !important;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2rem !important;
-      }
-      
-      .service-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
-      }
-      
-      .service-card img {
-        height: 200px !important;
-      }
-      
-      .heading-icon {
-        width: 4rem !important;
-        height: 4rem !important;
-      }
-      
-      .heading-icon span {
-        font-size: 1.5rem !important;
-      }
-    }
-    
-    /* Footer responsiveness */
     @media (max-width: 768px) {
       footer .grid {
         grid-template-columns: 1fr;
@@ -726,6 +800,94 @@
         margin-bottom: 1rem;
       }
     }
+    
+    /* Mobile Chat Widget Fixes */
+    @media (max-width: 640px) {
+      #chat-window {
+        width: calc(100vw - 2rem) !important;
+        height: 70vh !important;
+        right: 1rem !important;
+        left: 1rem !important;
+        bottom: 6rem !important;
+        top: auto !important;
+      }
+      
+      #chat-toggle {
+        bottom: 1rem !important;
+        right: 1rem !important;
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #chat-window {
+        width: calc(100vw - 1rem) !important;
+        height: 80vh !important;
+        right: 0.5rem !important;
+        left: 0.5rem !important;
+        bottom: 6rem !important;
+        top: auto !important;
+      }
+      
+      #chat-toggle {
+        bottom: 0.5rem !important;
+        right: 0.5rem !important;
+        width: 3rem !important;
+        height: 3rem !important;
+      }
+    }
+    
+    /* Chat window animation fixes */
+    #chat-window {
+      transition: all 0.3s ease-out !important;
+      transform-origin: bottom right;
+    }
+    
+    #chat-window.show {
+      animation: slideUp 0.3s ease-out !important;
+    }  
+    
+    /* Mobile Navigation Improvements */
+    @media (max-width: 768px) {
+      #mobile-nav {
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      
+      .mobile-menu {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #chat-window {
+        width: calc(100vw - 1rem);
+        right: -0.5rem;
+        left: 0.5rem;
+        height: 75vh;
+      }
+      
+      .whatsapp-float {
+        bottom: 3.5rem;
+        right: 0.5rem;
+      }
+      
+      #chat-toggle {
+        bottom: 3.5rem;
+        right: 0.5rem;
+      }
+      
+      /* Extra Small Mobile Fixes */
+      .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+      
+      .service-card {
+        padding: 1.5rem;
+      }
+    }
   </style>
 
   <!-- WhatsApp Floating Button -->
@@ -736,8 +898,8 @@
   </a>
 
   <!-- AI Chatbot Widget -->
-  <div class="fixed bottom-24 right-6 z-30">
-    <button id="chat-toggle" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110" title="Open Chat">
+  <div class="chat-container fixed bottom-24 right-6 z-30">
+    <button id="chat-toggle" class="bg-gradient-to-r from-orange-500 to-red-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110" title="Open Chat">
       <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
         <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12h-8v-2h8v2zm0-3h-8V9h8v2zm0-3h-8V6h8v2z"/>
       </svg>
@@ -745,7 +907,7 @@
     
     <div id="chat-window" class="hidden absolute bottom-20 right-0 bg-white rounded-2xl shadow-2xl w-96 h-[500px] flex flex-col border border-gray-100 overflow-hidden">
       <!-- Chat Header -->
-      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 flex items-center gap-3">
+      <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-4 flex items-center gap-3">
         <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
           <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
@@ -761,7 +923,7 @@
       <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
         <!-- Welcome Message -->
         <div class="flex items-start gap-3">
-          <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+          <div class="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0">
             <svg class="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
             </svg>
@@ -790,8 +952,8 @@
       <!-- Chat Input -->
       <div class="p-4 bg-white border-t border-gray-100">
         <div class="flex gap-2">
-          <input id="chat-input" type="text" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-200" />
-          <button id="chat-send" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+          <input id="chat-input" type="text" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-200" />
+          <button id="chat-send" class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
             Send
           </button>
         </div>

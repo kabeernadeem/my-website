@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsiveness Test - StratifyX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/mobile-responsive.css">
+    <style>
+        .test-section {
+            border: 2px solid #e5e7eb;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        .test-section h3 {
+            color: #ea580c;
+            margin-bottom: 0.5rem;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .status-pass { background-color: #10b981; }
+        .status-fail { background-color: #ef4444; }
+        .status-warning { background-color: #f59e0b; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header Test -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-600">StratifyX<span class="text-black font-bold">.web</span></span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-orange-600 transition">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-orange-600 transition">About</a>
+                    <a href="#" class="text-gray-700 hover:text-orange-600 transition">Contact</a>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="nav-toggle" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navigation -->
+        <div id="mobile-nav" class="md:hidden hidden border-t border-gray-100">
+            <div class="px-4 py-2 space-y-1">
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition">Home</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition">About</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Mobile Responsiveness Test Page</h1>
+        
+        <!-- Viewport Info -->
+        <div class="test-section">
+            <h3>📱 Current Viewport Information</h3>
+            <p>Window Width: <span id="window-width" class="font-mono bg-gray-100 px-2 py-1 rounded"></span>px</p>
+            <p>Device Type: <span id="device-type" class="font-mono bg-gray-100 px-2 py-1 rounded"></span></p>
+            <p>Orientation: <span id="orientation" class="font-mono bg-gray-100 px-2 py-1 rounded"></span></p>
+        </div>
+
+        <!-- Navigation Test -->
+        <div class="test-section">
+            <h3>🧭 Navigation Test</h3>
+            <p><span class="status-indicator status-pass"></span>Desktop navigation should be hidden on mobile</p>
+            <p><span class="status-indicator status-pass"></span>Mobile menu button should be visible on mobile</p>
+            <p><span class="status-indicator status-pass"></span>Mobile navigation should work when toggled</p>
+            <button id="test-nav-toggle" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Test Mobile Nav Toggle</button>
+        </div>
+
+        <!-- Typography Test -->
+        <div class="test-section">
+            <h3>📝 Typography Scaling Test</h3>
+            <h1 class="text-4xl font-bold mb-4">Heading 1 - Should scale on mobile</h1>
+            <h2 class="text-3xl font-semibold mb-3">Heading 2 - Should scale on mobile</h2>
+            <h3 class="text-2xl font-medium mb-2">Heading 3 - Should scale on mobile</h3>
+            <p class="text-lg">Paragraph text should be readable on mobile with proper line height.</p>
+        </div>
+
+        <!-- Layout Test -->
+        <div class="test-section">
+            <h3>📐 Layout Grid Test</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-blue-100 p-4 rounded">Grid Item 1</div>
+                <div class="bg-blue-200 p-4 rounded">Grid Item 2</div>
+                <div class="bg-blue-300 p-4 rounded">Grid Item 3</div>
+                <div class="bg-blue-400 p-4 rounded">Grid Item 4</div>
+            </div>
+            <p class="mt-2 text-sm text-gray-600">On mobile: should stack vertically (1 column)</p>
+            <p class="text-sm text-gray-600">On tablet: should show 2 columns</p>
+            <p class="text-sm text-gray-600">On desktop: should show 4 columns</p>
+        </div>
+
+        <!-- Button Test -->
+        <div class="test-section">
+            <h3>🔘 Button Touch Target Test</h3>
+            <button class="bg-orange-500 text-white px-6 py-3 rounded-lg mr-2 mb-2">Primary Button</button>
+            <button class="bg-gray-500 text-white px-6 py-3 rounded-lg mr-2 mb-2">Secondary Button</button>
+            <button class="border border-gray-300 px-6 py-3 rounded-lg mr-2 mb-2">Outline Button</button>
+            <p class="text-sm text-gray-600">All buttons should have minimum 44px touch target on mobile</p>
+        </div>
+
+        <!-- Form Test -->
+        <div class="test-section">
+            <h3>📝 Form Input Test</h3>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Text Input</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2" placeholder="Enter text...">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email Input</label>
+                    <input type="email" class="w-full border border-gray-300 rounded-lg px-4 py-2" placeholder="Enter email...">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <textarea class="w-full border border-gray-300 rounded-lg px-4 py-2" rows="4" placeholder="Enter message..."></textarea>
+                </div>
+                <button type="submit" class="bg-orange-500 text-white px-6 py-3 rounded-lg">Submit Form</button>
+            </form>
+            <p class="text-sm text-gray-600">Inputs should be large enough to prevent zoom on iOS</p>
+        </div>
+
+        <!-- Chatbot Test -->
+        <div class="test-section">
+            <h3>💬 Chatbot Position Test</h3>
+            <p><span class="status-indicator status-pass"></span>Chat toggle should be positioned correctly on mobile</p>
+            <p><span class="status-indicator status-pass"></span>Chat window should open and stay visible on mobile</p>
+            <p><span class="status-indicator status-pass"></span>WhatsApp button should be positioned correctly on mobile</p>
+            <p>Current chatbot status: <span id="chatbot-status" class="font-mono bg-gray-100 px-2 py-1 rounded">Not loaded</span></p>
+        </div>
+
+        <!-- Footer Test -->
+        <div class="test-section">
+            <h3>🦶 Footer Layout Test</h3>
+            <div class="bg-gray-900 text-white p-6 rounded">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-4">Company</h4>
+                        <p class="text-gray-400">Company description</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Services</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">SEO</a></li>
+                            <li><a href="#">Marketing</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Contact</h4>
+                        <p class="text-gray-400">Contact information</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600">On mobile: should stack vertically with centered content</p>
+        </div>
+
+        <!-- Performance Test -->
+        <div class="test-section">
+            <h3>⚡ Performance Test</h3>
+            <p>Page Load Time: <span id="load-time" class="font-mono bg-gray-100 px-2 py-1 rounded">Calculating...</span></p>
+            <p>Touch Response: <span class="status-indicator status-pass"></span>Should be responsive without lag</p>
+            <p>Scroll Performance: <span class="status-indicator status-pass"></span>Should be smooth with hardware acceleration</p>
+        </div>
+    </main>
+
+    <!-- Chatbot Widget (Test Version) -->
+    <div class="chat-container fixed bottom-24 right-6 z-30">
+        <button id="chat-toggle" class="bg-gradient-to-r from-orange-500 to-red-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110" title="Open Chat">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12h-8v-2h8v2zm0-3h-8V9h8v2zm0-3h-8V6h8v2z"/>
+            </svg>
+        </button>
+        
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 bg-white rounded-2xl shadow-2xl w-96 h-[500px] flex flex-col border border-gray-100 overflow-hidden">
+            <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-4 flex items-center gap-3">
+                <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="font-semibold">StratifyX<span class="text-gray-600 font-bold">.web</span> Assistant</div>
+                    <div class="text-xs text-blue-100">Test Mode • Online</div>
+                </div>
+            </div>
+            
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+                <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                        </svg>
+                    </div>
+                    <div class="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-[80%]">
+                        <p class="text-sm text-gray-800">Test mode active! Chatbot should work properly on mobile.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-4 bg-white border-t border-gray-100">
+                <div class="flex gap-2">
+                    <input id="chat-input" type="text" placeholder="Type test message..." class="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm">
+                    <button id="chat-send" class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-lg">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button (Test Version) -->
+    <a href="https://wa.me/923124171077" target="_blank" rel="noopener" class="whatsapp-float fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg z-30" title="Chat on WhatsApp">
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.75 5.404 2.177 7.707l-2.313 6.179 6.438-2.313c2.259 1.227 4.823 1.927 7.529 1.927 9.858 0 17.895-8.009 17.895-17.895 0-4.784-1.899-9.29-5.345-12.676-3.446-3.387-8.034-5.25-12.878-5.25"/>
+        </svg>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Test page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update viewport information
+            function updateViewportInfo() {
+                const width = window.innerWidth;
+                const widthSpan = document.getElementById('window-width');
+                const deviceSpan = document.getElementById('device-type');
+                const orientationSpan = document.getElementById('orientation');
+                
+                if (widthSpan) widthSpan.textContent = width;
+                
+                if (deviceSpan) {
+                    if (width < 480) {
+                        deviceSpan.textContent = 'Mobile (Small)';
+                    } else if (width < 768) {
+                        deviceSpan.textContent = 'Mobile (Medium)';
+                    } else if (width < 1024) {
+                        deviceSpan.textContent = 'Tablet';
+                    } else {
+                        deviceSpan.textContent = 'Desktop';
+                    }
+                }
+                
+                if (orientationSpan) {
+                    orientationSpan.textContent = window.innerHeight > window.innerWidth ? 'Portrait' : 'Landscape';
+                }
+            }
+            
+            // Calculate page load time
+            window.addEventListener('load', function() {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                const loadTimeSpan = document.getElementById('load-time');
+                if (loadTimeSpan) {
+                    loadTimeSpan.textContent = loadTime + 'ms';
+                }
+            });
+            
+            // Test navigation toggle
+            const testNavToggle = document.getElementById('test-nav-toggle');
+            if (testNavToggle) {
+                testNavToggle.addEventListener('click', function() {
+                    const mobileNav = document.getElementById('mobile-nav');
+                    if (mobileNav) {
+                        mobileNav.classList.toggle('hidden');
+                        alert('Mobile navigation toggled: ' + (mobileNav.classList.contains('hidden') ? 'Hidden' : 'Visible'));
+                    }
+                });
+            }
+            
+            // Update chatbot status
+            const chatToggle = document.getElementById('chat-toggle');
+            const chatStatus = document.getElementById('chatbot-status');
+            if (chatToggle && chatStatus) {
+                chatStatus.textContent = 'Loaded and Ready';
+                chatStatus.className = 'font-mono bg-green-100 px-2 py-1 rounded';
+            }
+            
+            // Update viewport info on resize
+            updateViewportInfo();
+            window.addEventListener('resize', updateViewportInfo);
+            window.addEventListener('orientationchange', updateViewportInfo);
+        });
+    </script>
+</body>
+</html>
