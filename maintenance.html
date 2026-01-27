@@ -9,6 +9,11 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="favicon.png" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -512,14 +517,15 @@
         </div>
         
         <!-- Quick Links -->
+        <!-- Quick Links (Animated) -->
         <div>
           <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul class="space-y-3">
-            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-            <li><a href="index.html#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-            <li><a href="index.html#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          <ul>
+            <li style="--clr:#00ade1"><a href="index.html" data-text="&nbsp;Home">&nbsp;Home&nbsp;</a></li>
+            <li style="--clr:#ff6492"><a href="about.html" data-text="&nbsp;About">&nbsp;About&nbsp;</a></li>
+            <li style="--clr:#ffdd1c"><a href="index.html#services" data-text="&nbsp;Services">&nbsp;Services&nbsp;</a></li>
+            <li style="--clr:#00dc82"><a href="index.html#portfolio" data-text="&nbsp;Portfolio">&nbsp;Portfolio&nbsp;</a></li>
+            <li style="--clr:#dc00d4"><a href="contact.html" data-text="&nbsp;Contact">&nbsp;Contact&nbsp;</a></li>
           </ul>
         </div>
         
@@ -527,11 +533,11 @@
         <div>
           <h3 class="text-lg font-semibold mb-4">Services</h3>
           <ul class="space-y-3">
-            <li><a href="onpage-seo.html" class="text-gray-400 hover:text-white transition-colors">SEO Services</a></li>
-            <li><a href="wordpress.html" class="text-gray-400 hover:text-white transition-colors">Web Design</a></li>
-            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-white transition-colors">Digital Marketing</a></li>
-            <li><a href="ecommerce.html" class="text-gray-400 hover:text-white transition-colors">E-commerce</a></li>
-            <li><a href="shopify.html" class="text-gray-400 hover:text-white transition-colors">Shopify Development</a></li>
+            <li><a href="onpage-seo.html" class="text-gray-400 hover:text-white transition-colors service-link">SEO Services</a></li>
+            <li><a href="wordpress.html" class="text-gray-400 hover:text-white transition-colors service-link">Web Design</a></li>
+            <li><a href="digital-marketing.html" class="text-gray-400 hover:text-white transition-colors service-link">Digital Marketing</a></li>
+            <li><a href="ecommerce.html" class="text-gray-400 hover:text-white transition-colors service-link">E-commerce</a></li>
+            <li><a href="shopify.html" class="text-gray-400 hover:text-white transition-colors service-link">Shopify Development</a></li>
           </ul>
         </div>
         
@@ -784,6 +790,57 @@
     
     #chat-messages::-webkit-scrollbar-thumb:hover {
       background: #9ca3af;
+    }
+
+    /* Custom Footer Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+    ul li {
+      position: relative;
+      list-style: none;
+    }
+
+    ul li a {
+      font-size: 1.1em;
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+    }
+
+    ul li a::before {
+      content: attr(data-text);
+      position: absolute;
+      color: var(--clr);
+      width: 0;
+      overflow: hidden;
+      transition: 1s;
+      border-right: 3px solid var(--clr);
+      -webkit-text-stroke: 1px var(--clr);
+    }
+
+    ul li a:hover::before {
+      width: 100%;
+      filter: drop-shadow(0 0 15px var(--clr));
+    }
+
+    /* Override for service links - make them normal */
+    .service-link {
+      font-size: inherit !important;
+      text-decoration: none !important;
+      letter-spacing: inherit !important;
+      text-transform: inherit !important;
+      color: rgb(156 163 175) !important;
+      -webkit-text-stroke: none !important;
+    }
+
+    .service-link::before {
+      display: none !important;
+    }
+
+    .service-link:hover {
+      color: white !important;
     }
   </style>
 
