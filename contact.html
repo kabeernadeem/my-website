@@ -548,6 +548,17 @@
             submitButton.disabled = false;
           }
           
+          // Clear form after successful submission
+          setTimeout(function() {
+            contactForm.reset();
+            const inputs = contactForm.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+              input.value = '';
+              input.setAttribute('value', '');
+              input.blur();
+            });
+          }, 2000);
+          
           // Hide success message after 5 seconds
           setTimeout(function() {
             if (formFeedback) {
