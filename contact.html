@@ -466,35 +466,21 @@
 
         <div>
           <label for="name" class="block text-slate-900 font-semibold mb-2">Full Name *</label>
-          <input type="text" id="name" name="name" required 
+          <input type="text" id="name" name="name" required autocomplete="off"
                  class="peer w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                  placeholder="Your name" />
         </div>
 
         <div>
           <label for="email" class="block text-slate-900 font-semibold mb-2">Email Address *</label>
-          <input type="email" id="email" name="email" required 
+          <input type="email" id="email" name="email" required autocomplete="off"
                  class="peer w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                  placeholder="your@email.com" />
         </div>
 
         <div>
-          <label for="company" class="block text-slate-900 font-semibold mb-2">Company (Optional)</label>
-          <input type="text" id="company" name="company" 
-                 class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" 
-                 placeholder="Your company" />
-        </div>
-
-        <div>
-          <label for="subject" class="block text-slate-900 font-semibold mb-2">Subject *</label>
-          <input type="text" id="subject" name="subject" required 
-                 class="peer w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" 
-                 placeholder="What's this about?" />
-        </div>
-
-        <div>
           <label for="message" class="block text-slate-900 font-semibold mb-2">Message *</label>
-          <textarea id="message" name="message" required rows="6" 
+          <textarea id="message" name="message" required rows="6" autocomplete="off"
                    class="peer w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                    placeholder="Tell us about your project..."></textarea>
         </div>
@@ -516,72 +502,55 @@
   </div>
 </section>
 
-<!-- JavaScript for Form Validation + Submission -->
+<!-- Simple Formspree Integration - No JavaScript needed -->
+<!-- HTML5 required attributes handle validation automatically -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const contactForm = document.getElementById("contact-form");
-  const formFeedback = document.getElementById("form-feedback");
-  const formError = document.getElementById("form-error");
-  
-  if (!contactForm) {
-    return;
-  }
-  
-  contactForm.addEventListener("submit", function(e) {
-    e.preventDefault();
+  // Form will submit naturally to Formspree using HTML5 validation
+  // No JavaScript required - works exactly like test.html
 
-    // Get form fields
-    const name = document.getElementById('name')?.value.trim();
-    const email = document.getElementById('email')?.value.trim();
-    const subject = document.getElementById('subject')?.value.trim();
-    const message = document.getElementById('message')?.value.trim();
-    
-    // Reset feedback messages
-    if (formFeedback) formFeedback.classList.add("hidden");
-    if (formError) formError.classList.add("hidden");
-    
-    // Validation
-    if (!name || !email || !subject || !message) {
-      if (formError) {
-        formError.textContent = "Please fill in all required fields.";
-        formError.classList.remove("hidden");
-      }
-      return;
-    }
-    
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      if (formError) {
-        formError.textContent = "Please enter a valid email address.";
-        formError.classList.remove("hidden");
-      }
-      return;
-    }
-
-    // In production, you would send this to a backend service
-    try {
-      // Simulate API call
-      setTimeout(() => {
-        if (formFeedback) {
-          formFeedback.classList.remove("hidden");
-          contactForm.reset();
-        }
-        
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          if (formFeedback) formFeedback.classList.add("hidden");
-        }, 5000);
-      }, 1000);
+  // Aggressive form clearing - multiple approaches
+  function clearForm() {
+    console.log('Clearing form...');
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.reset();
+      console.log('Form reset completed');
       
-    } catch (error) {
-      if (formError) {
-        formError.textContent = "An error occurred. Please try again.";
-        formError.classList.remove("hidden");
-      }
+      // Also manually clear each field to be extra sure
+      const inputs = contactForm.querySelectorAll('input, textarea');
+      inputs.forEach(input => {
+        input.value = '';
+        input.setAttribute('value', '');
+      });
+      console.log('Manual field clearing completed');
+    } else {
+      console.log('Form not found!');
     }
+  }
+
+  // Clear form on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded - clearing form');
+    clearForm();
   });
-});
+  
+  // Clear form on pageshow (back/forward navigation)
+  window.addEventListener('pageshow', (event) => {
+    console.log('Page shown - clearing form');
+    clearForm();
+  });
+
+  // Clear form on window focus (extra protection)
+  window.addEventListener('focus', function() {
+    console.log('Window focused - clearing form');
+    clearForm();
+  });
+
+  // Clear form after a short delay (ensure everything is loaded)
+  setTimeout(function() {
+    console.log('Timeout - clearing form');
+    clearForm();
+  }, 100);
 </script>
 </main>
 

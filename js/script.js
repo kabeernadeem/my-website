@@ -58,56 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(() => document.body.classList.add('home-animated'), 80);
 });
 
-// Contact Form Handling
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('name')?.value.trim();
-    const email = document.getElementById('email')?.value.trim();
-    const subject = document.getElementById('subject')?.value.trim();
-    const message = document.getElementById('message')?.value.trim();
-    const feedback = document.getElementById('form-feedback');
-    const error = document.getElementById('form-error');
-    
-    // Reset feedback messages
-    if (feedback) feedback.classList.add('hidden');
-    if (error) error.classList.add('hidden');
-    
-    // Validation
-    if (!name || !email || !subject || !message) {
-      if (error) error.classList.remove('hidden');
-      return;
-    }
-    
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      if (error) error.classList.remove('hidden');
-      return;
-    }
-    
-    // Show success message
-    if (feedback) {
-      feedback.classList.remove('hidden');
-      // Reset form
-      contactForm.reset();
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        feedback.classList.add('hidden');
-      }, 5000);
-    }
-    
-    // TODO: Send form data to backend/email service
-    // Example: 
-    // fetch('/api/contact', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ name, email, subject, message, company })
-    // }).then(response => response.json());
-  });
-}
+// Contact Form Handling - REMOVED to allow natural Formspree submission
+// Form now submits naturally using HTML5 validation like test.html
+// No JavaScript interference - form will work directly with Formspree
 
 // Set current year in footer
 const yearEl = document.getElementById('year');
