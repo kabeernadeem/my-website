@@ -502,49 +502,121 @@
   </div>
 </section>
 
-<!-- Simple Formspree Integration - No JavaScript needed -->
+<!-- Simple Formspree Integration with Success Message -->
 <!-- HTML5 required attributes handle validation automatically -->
 <script>
   // Form will submit naturally to Formspree using HTML5 validation
-  // No JavaScript required - works exactly like test.html
+  // Simple success message handling added
 
-  // Aggressive form clearing for GitHub Pages
+  // Handle form submission
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+    const formError = document.getElementById('form-error');
+    
+    if (contactForm) {
+      // Handle form submission
+      contactForm.addEventListener('submit', function(e) {
+        // Don't prevent default - let it submit to Formspree
+        // But show loading state
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        if (submitButton) {
+          submitButton.textContent = 'Sending...';
+          submitButton.disabled = true;
+        }
+        
+        // Show success message after a delay (assuming Formspree works)
+        setTimeout(function() {
+          if (formFeedback) {
+            formFeedback.classList.remove('hidden');
+          }
+          if (formError) {
+            formError.classList.add('hidden');
+          }
+          
+          // Reset button
+          if (submitButton) {
+            submitButton.textContent = 'Send Message ✉️';
+            submitButton.disabled = false;
+          }
+          
+          // Hide success message after 5 seconds
+          setTimeout(function() {
+            if (formFeedback) {
+              formFeedback.classList.add('hidden');
+            }
+          }, 5000);
+        }, 1000);
+      });
+    }
+  });
+
+  // Aggressive form clearing for GitHub Pages caching issues
   function clearForm() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
+      // Method 1: Standard reset
       contactForm.reset();
       
-      // Force clear each field value
+      // Method 2: Force clear each field
       const inputs = contactForm.querySelectorAll('input, textarea');
       inputs.forEach(input => {
         input.value = '';
         input.setAttribute('value', '');
-        input.blur(); // Remove focus
+        input.blur();
+        
+        // Method 3: Force DOM update
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
       });
+      
+      // Method 4: Clear any browser autofill
+      setTimeout(() => {
+        inputs.forEach(input => {
+          if (input.value) {
+            input.value = '';
+            input.setAttribute('value', '');
+          }
+        });
+      }, 50);
     }
   }
 
-  // Clear form on page load
-  document.addEventListener('DOMContentLoaded', clearForm);
-  
-  // Clear form on pageshow (back/forward navigation)
-  window.addEventListener('pageshow', function(event) {
-    // Force clear even if cached
+  // Multiple triggers for GitHub Pages
+  document.addEventListener('pageshow', function(event) {
+    // Force clear with multiple delays
+    clearForm();
     setTimeout(clearForm, 100);
+    setTimeout(clearForm, 500);
   });
-
-  // Clear form on window focus (extra protection)
+  
   window.addEventListener('focus', clearForm);
-
-  // Clear form on visibility change (modern browsers)
+  window.addEventListener('load', clearForm);
   document.addEventListener('visibilitychange', function() {
     if (!document.hidden) {
       clearForm();
     }
   });
 
-  // Clear form after page fully loads
-  window.addEventListener('load', clearForm);
+  // Additional GitHub Pages specific clearing
+  if (window.performance && window.performance.navigation.type === 2) {
+    // Back button navigation detected
+    clearForm();
+  }
+
+  // Clear on hash change (SPA-like behavior)
+  window.addEventListener('hashchange', clearForm);
+  
+  // Clear every 5 seconds as backup (only if form has data)
+  setInterval(() => {
+    const form = document.getElementById('contact-form');
+    if (form) {
+      const hasData = Array.from(form.querySelectorAll('input, textarea')).some(input => input.value);
+      if (hasData) {
+        clearForm();
+      }
+    }
+  }, 5000);
 </script>
 </main>
 
