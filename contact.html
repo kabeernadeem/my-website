@@ -559,7 +559,7 @@
     }
   });
 
-  // Force form reload for GitHub Pages
+  // Force form reload for GitHub Pages (only on back navigation)
   function forceFormReload() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -596,47 +596,24 @@
     }
   }
 
-  // Multiple triggers for GitHub Pages
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(forceFormReload, 100);
-    setTimeout(forceFormReload, 500);
-  });
-  
+  // Only trigger on back navigation, not during normal use
   document.addEventListener('pageshow', function(event) {
-    // Force reload on back navigation
-    setTimeout(forceFormReload, 100);
-    setTimeout(forceFormReload, 500);
-  });
-  
-  window.addEventListener('focus', forceFormReload);
-  window.addEventListener('load', function() {
-    setTimeout(forceFormReload, 100);
-  });
-  document.addEventListener('visibilitychange', function() {
-    if (!document.hidden) {
+    // Only reload if coming from back navigation
+    if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
       setTimeout(forceFormReload, 100);
+      setTimeout(forceFormReload, 500);
     }
   });
 
-  // Additional GitHub Pages specific clearing
-  if (window.performance && window.performance.navigation.type === 2) {
-    // Back button navigation detected
-    forceFormReload();
+  // Clear on initial page load only
+  if (window.performance && window.performance.navigation.type === 0) {
+    // Fresh page load - clear form
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(forceFormReload, 100);
+    });
   }
 
-  // Clear on hash change (SPA-like behavior)
-  window.addEventListener('hashchange', forceFormReload);
-  
-  // Clear every 3 seconds as backup (only if form has data)
-  setInterval(() => {
-    const form = document.getElementById('contact-form');
-    if (form) {
-      const hasData = Array.from(form.querySelectorAll('input, textarea')).some(input => input.value);
-      if (hasData) {
-        forceFormReload();
-      }
-    }
-  }, 3000);
+  // Remove all other aggressive triggers that interfere with user input
 </script>
 </main>
 
