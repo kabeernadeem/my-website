@@ -510,12 +510,9 @@
   </div>
 </section>
 
-<!-- Simple Formspree Integration with Form Reload -->
+<!-- Simple Formspree Integration with Form Reset -->
 <!-- HTML5 required attributes handle validation automatically -->
 <script>
-  // Form will submit naturally to Formspree using HTML5 validation
-  // Form reload approach for GitHub Pages caching
-
   // Handle form submission
   document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
@@ -533,7 +530,7 @@
           submitButton.disabled = true;
         }
         
-        // Show success message after a delay (assuming Formspree works)
+        // Show success message after a delay
         setTimeout(function() {
           if (formFeedback) {
             formFeedback.classList.remove('hidden');
@@ -548,16 +545,12 @@
             submitButton.disabled = false;
           }
           
-          // Clear form after successful submission
-          setTimeout(function() {
-            contactForm.reset();
-            const inputs = contactForm.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-              input.value = '';
-              input.setAttribute('value', '');
-              input.blur();
-            });
-          }, 2000);
+          // Clear form immediately after showing success
+          contactForm.reset();
+          const inputs = contactForm.querySelectorAll('input, textarea');
+          inputs.forEach(input => {
+            input.value = '';
+          });
           
           // Hide success message after 5 seconds
           setTimeout(function() {
@@ -570,61 +563,33 @@
     }
   });
 
-  // Force form reload for GitHub Pages (only on back navigation)
-  function forceFormReload() {
+  // Simple form clearing on page load
+  window.addEventListener('load', function() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-      // Store current action and method
-      const action = contactForm.action;
-      const method = contactForm.method;
-      const className = contactForm.className;
-      
-      // Get parent element
-      const parent = contactForm.parentNode;
-      
-      // Create new form element
-      const newForm = document.createElement('form');
-      newForm.id = 'contact-form';
-      newForm.action = action;
-      newForm.method = method;
-      newForm.className = className;
-      
-      // Clone all form content
-      newForm.innerHTML = contactForm.innerHTML;
-      
-      // Replace old form with new one
-      parent.replaceChild(newForm, contactForm);
-      
-      // Clear all input values in new form
-      const inputs = newForm.querySelectorAll('input, textarea');
+      contactForm.reset();
+      const inputs = contactForm.querySelectorAll('input, textarea');
       inputs.forEach(input => {
         input.value = '';
-        input.setAttribute('value', '');
-        input.blur();
       });
-      
-      console.log('Form reloaded and cleared');
-    }
-  }
-
-  // Only trigger on back navigation, not during normal use
-  document.addEventListener('pageshow', function(event) {
-    // Only reload if coming from back navigation
-    if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-      setTimeout(forceFormReload, 100);
-      setTimeout(forceFormReload, 500);
     }
   });
 
-  // Clear on initial page load only
-  if (window.performance && window.performance.navigation.type === 0) {
-    // Fresh page load - clear form
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(forceFormReload, 100);
-    });
-  }
-
-  // Remove all other aggressive triggers that interfere with user input
+  // Clear form on back navigation
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        setTimeout(function() {
+          contactForm.reset();
+          const inputs = contactForm.querySelectorAll('input, textarea');
+          inputs.forEach(input => {
+            input.value = '';
+          });
+        }, 100);
+      }
+    }
+  });
 </script>
 </main>
 
