@@ -522,46 +522,49 @@
     if (contactForm) {
       // Handle form submission
       contactForm.addEventListener('submit', function(e) {
-        // Don't prevent default - let it submit to Formspree
-        // But show loading state
+        // Let form submit naturally to Formspree
         const submitButton = contactForm.querySelector('button[type="submit"]');
         if (submitButton) {
           submitButton.textContent = 'Sending...';
-          submitButton.disabled = true;
         }
         
-        // Show success message after a delay
+        // After submission, redirect to same page to clear form
         setTimeout(function() {
+          // Show success message briefly
           if (formFeedback) {
             formFeedback.classList.remove('hidden');
           }
-          if (formError) {
-            formError.classList.add('hidden');
-          }
           
-          // Reset button
-          if (submitButton) {
-            submitButton.textContent = 'Send Message ✉️';
-            submitButton.disabled = false;
-          }
-          
-          // Clear form immediately after showing success
-          contactForm.reset();
-          const inputs = contactForm.querySelectorAll('input, textarea');
-          inputs.forEach(input => {
-            input.value = '';
-          });
-          
-          // Hide success message after 5 seconds
+          // Redirect to same page after 3 seconds to clear form
           setTimeout(function() {
-            if (formFeedback) {
-              formFeedback.classList.add('hidden');
-            }
-          }, 5000);
-        }, 1000);
+            window.location.href = window.location.href + '?submitted=true';
+          }, 3000);
+        }, 2000); // Wait for submission
       });
     }
   });
+
+  // Check if page was loaded after submission
+  if (window.location.search.includes('submitted=true')) {
+    // Show success message
+    const formFeedback = document.getElementById('form-feedback');
+    if (formFeedback) {
+      formFeedback.classList.remove('hidden');
+    }
+    
+    // Hide success message after 5 seconds
+    setTimeout(function() {
+      if (formFeedback) {
+        formFeedback.classList.add('hidden');
+      }
+    }, 5000);
+    
+    // Clear URL parameter
+    if (window.history.replaceState) {
+      const newURL = window.location.href.split('?')[0];
+      window.history.replaceState({}, document.title, newURL);
+    }
+  }
 
   // Simple form clearing on page load
   window.addEventListener('load', function() {
