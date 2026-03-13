@@ -510,11 +510,11 @@
   </div>
 </section>
 
-<!-- Simple Formspree Integration with Success Message -->
+<!-- Simple Formspree Integration with Form Reload -->
 <!-- HTML5 required attributes handle validation automatically -->
 <script>
   // Form will submit naturally to Formspree using HTML5 validation
-  // Simple success message handling added
+  // Form reload approach for GitHub Pages caching
 
   // Handle form submission
   document.addEventListener('DOMContentLoaded', function() {
@@ -559,72 +559,84 @@
     }
   });
 
-  // Aggressive form clearing for GitHub Pages caching issues
-  function clearForm() {
+  // Force form reload for GitHub Pages
+  function forceFormReload() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-      // Method 1: Standard reset
-      contactForm.reset();
+      // Store current action and method
+      const action = contactForm.action;
+      const method = contactForm.method;
+      const className = contactForm.className;
       
-      // Method 2: Force clear each field
-      const inputs = contactForm.querySelectorAll('input, textarea');
+      // Get parent element
+      const parent = contactForm.parentNode;
+      
+      // Create new form element
+      const newForm = document.createElement('form');
+      newForm.id = 'contact-form';
+      newForm.action = action;
+      newForm.method = method;
+      newForm.className = className;
+      
+      // Clone all form content
+      newForm.innerHTML = contactForm.innerHTML;
+      
+      // Replace old form with new one
+      parent.replaceChild(newForm, contactForm);
+      
+      // Clear all input values in new form
+      const inputs = newForm.querySelectorAll('input, textarea');
       inputs.forEach(input => {
         input.value = '';
         input.setAttribute('value', '');
         input.blur();
-        
-        // Method 3: Force DOM update
-        input.dispatchEvent(new Event('input', { bubbles: true }));
-        input.dispatchEvent(new Event('change', { bubbles: true }));
       });
       
-      // Method 4: Clear any browser autofill
-      setTimeout(() => {
-        inputs.forEach(input => {
-          if (input.value) {
-            input.value = '';
-            input.setAttribute('value', '');
-          }
-        });
-      }, 50);
+      console.log('Form reloaded and cleared');
     }
   }
 
   // Multiple triggers for GitHub Pages
-  document.addEventListener('pageshow', function(event) {
-    // Force clear with multiple delays
-    clearForm();
-    setTimeout(clearForm, 100);
-    setTimeout(clearForm, 500);
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(forceFormReload, 100);
+    setTimeout(forceFormReload, 500);
   });
   
-  window.addEventListener('focus', clearForm);
-  window.addEventListener('load', clearForm);
+  document.addEventListener('pageshow', function(event) {
+    // Force reload on back navigation
+    setTimeout(forceFormReload, 100);
+    setTimeout(forceFormReload, 500);
+  });
+  
+  window.addEventListener('focus', forceFormReload);
+  window.addEventListener('load', function() {
+    setTimeout(forceFormReload, 100);
+  });
   document.addEventListener('visibilitychange', function() {
     if (!document.hidden) {
-      clearForm();
+      setTimeout(forceFormReload, 100);
     }
   });
 
   // Additional GitHub Pages specific clearing
   if (window.performance && window.performance.navigation.type === 2) {
     // Back button navigation detected
-    clearForm();
+    forceFormReload();
   }
 
   // Clear on hash change (SPA-like behavior)
-  window.addEventListener('hashchange', clearForm);
+  window.addEventListener('hashchange', forceFormReload);
   
-  // Clear every 5 seconds as backup (only if form has data)
+  // Clear every 3 seconds as backup (only if form has data)
   setInterval(() => {
     const form = document.getElementById('contact-form');
     if (form) {
       const hasData = Array.from(form.querySelectorAll('input, textarea')).some(input => input.value);
       if (hasData) {
-        clearForm();
+        forceFormReload();
       }
     }
-  }, 5000);
+  }, 3000);
 </script>
 </main>
 
