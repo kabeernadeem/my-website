@@ -508,49 +508,43 @@
   // Form will submit naturally to Formspree using HTML5 validation
   // No JavaScript required - works exactly like test.html
 
-  // Aggressive form clearing - multiple approaches
+  // Aggressive form clearing for GitHub Pages
   function clearForm() {
-    console.log('Clearing form...');
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.reset();
-      console.log('Form reset completed');
       
-      // Also manually clear each field to be extra sure
+      // Force clear each field value
       const inputs = contactForm.querySelectorAll('input, textarea');
       inputs.forEach(input => {
         input.value = '';
         input.setAttribute('value', '');
+        input.blur(); // Remove focus
       });
-      console.log('Manual field clearing completed');
-    } else {
-      console.log('Form not found!');
     }
   }
 
   // Clear form on page load
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded - clearing form');
-    clearForm();
-  });
+  document.addEventListener('DOMContentLoaded', clearForm);
   
   // Clear form on pageshow (back/forward navigation)
-  window.addEventListener('pageshow', (event) => {
-    console.log('Page shown - clearing form');
-    clearForm();
+  window.addEventListener('pageshow', function(event) {
+    // Force clear even if cached
+    setTimeout(clearForm, 100);
   });
 
   // Clear form on window focus (extra protection)
-  window.addEventListener('focus', function() {
-    console.log('Window focused - clearing form');
-    clearForm();
+  window.addEventListener('focus', clearForm);
+
+  // Clear form on visibility change (modern browsers)
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) {
+      clearForm();
+    }
   });
 
-  // Clear form after a short delay (ensure everything is loaded)
-  setTimeout(function() {
-    console.log('Timeout - clearing form');
-    clearForm();
-  }, 100);
+  // Clear form after page fully loads
+  window.addEventListener('load', clearForm);
 </script>
 </main>
 
